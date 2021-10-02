@@ -65,15 +65,14 @@ celsiusBtn.addEventListener("click", getCelsius);
 
 function showTemp(response) {
   console.log(response);
-  console.log(response.data.name);
+  let city = response.data.name;
+  let cityElement = document.querySelector("h3");
+  cityElement.innerHTML = `${city} is currently..`;
 
   let Temperature = Math.round(response.data.main.temp);
   console.log(response.data.main.temp);
   let tempElement = document.querySelector(".current-temp");
   tempElement.innerHTML = `${Temperature}`;
-  let cityElement = document.querySelector(".form-control");
-  let city = console.log(cityElement);
-  cityElement.innerHTML = `${city}`;
 }
 function getPosition(position) {
   console.log(position);
@@ -101,7 +100,5 @@ function getPosition(position) {
 
 //   axios.get(apiUrl).then(search)
 // }
-let Clocation = document.querySelector("button");
-Clocation.addEventListener("click", search);
 navigator.geolocation.getCurrentPosition(getPosition);
 // navigator.geolocation.getCurrentPosition(currentLocation)

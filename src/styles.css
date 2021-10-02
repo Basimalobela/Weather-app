@@ -10,14 +10,6 @@ img {
   width: 250px;
   height: 150px;
 }
-button {
-  position: relative;
-  right: -650px;
-  top: -39px;
-  padding: 8px;
-  border-radius: 10px;
-  font-weight: bold;
-}
 
 .container {
   position: relative;
