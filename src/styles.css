@@ -2,7 +2,7 @@ h1 {
   color: blue;
 }
 body {
-  background-image: url("../src/cloudy.gif");
+  background-image: url("./cloudy.gif");
   background-repeat: repeat;
   background-size: cover;
 }
@@ -24,14 +24,20 @@ button {
   right: 100px;
   top: 100px;
 }
+.row {
+  position: relative;
+  top: -170px;
+}
 .current-temp {
   position: relative;
+  left: 850px;
   left: 900px;
   top: -100px;
   font-size: 115px;
 }
 .disweather {
   position: relative;
+  left: 970px;
   left: 960px;
   top: -130px;
 }
@@ -42,6 +48,7 @@ button {
 }
 .degree {
   position: relative;
+  left: 850px;
   left: 920px;
   top: -150px;
   font-size: 70px;
@@ -60,4 +67,7 @@ button {
   position: relative;
   left: 700px;
   top: -380px;
+}
+#hr {
+  top: -200px;
 }
