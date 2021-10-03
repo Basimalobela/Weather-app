@@ -4,6 +4,7 @@ function search(event) {
   console.log(searchinput.value);
   let h3 = document.querySelector("h3");
   h3.innerHTML = `${searchinput.value} is currently`;
+
   let apiKey = "fd8dc43a95bacb95d9bf2f72376e8563";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchinput.value}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemp);
@@ -68,6 +69,19 @@ function showTemp(response) {
   let city = response.data.name;
   let cityElement = document.querySelector("h3");
   cityElement.innerHTML = `${city} is currently..`;
+
+  let forecast = document.querySelector(".disweather");
+  let forecastDiscription = response.data.weather[0].description;
+  forecast.innerHTML = `${forecastDiscription}`;
+  let windspeed = document.querySelector("#windspeed");
+  let windSpeedspeed = response.data.wind.speed;
+  windspeed.innerHTML = `${windSpeedspeed}`;
+
+  let logo = document.querySelector("#mainImg");
+  logo.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 
   let Temperature = Math.round(response.data.main.temp);
   console.log(response.data.main.temp);

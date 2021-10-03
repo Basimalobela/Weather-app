@@ -2,13 +2,21 @@ h1 {
   color: blue;
 }
 body {
-  background-image: url("./cloudy.gif");
+  background-image: url("../src/cloudy.gif");
   background-repeat: repeat;
   background-size: cover;
 }
 img {
   width: 250px;
   height: 150px;
+}
+button {
+  position: relative;
+  right: -650px;
+  top: -39px;
+  padding: 8px;
+  border-radius: 10px;
+  font-weight: bold;
 }
 
 .container {
@@ -18,13 +26,13 @@ img {
 }
 .current-temp {
   position: relative;
-  left: 850px;
+  left: 900px;
   top: -100px;
   font-size: 115px;
 }
 .disweather {
   position: relative;
-  left: 970px;
+  left: 960px;
   top: -130px;
 }
 #datetime {
@@ -34,7 +42,7 @@ img {
 }
 .degree {
   position: relative;
-  left: 850px;
+  left: 920px;
   top: -150px;
   font-size: 70px;
 }
@@ -42,4 +50,14 @@ img {
   position: relative;
   left: 970px;
   top: -145px;
+}
+.Windspeed {
+  position: relative;
+  left: 965px;
+  top: -130px;
+}
+#mainImg {
+  position: relative;
+  left: 700px;
+  top: -380px;
 }
