@@ -19,15 +19,6 @@ button {
   font-weight: bold;
 }
 
-.container {
-  position: relative;
-  right: 100px;
-  top: 100px;
-}
-.row {
-  position: relative;
-  top: -170px;
-}
 .current-temp {
   position: relative;
   left: 850px;
@@ -63,6 +54,9 @@ button {
   left: 965px;
   top: -130px;
 }
+.Forecast {
+  font-size: 30px;
+}
 #mainImg {
   position: relative;
   left: 700px;
@@ -70,4 +64,10 @@ button {
 }
 #hr {
   top: -200px;
+}
+
+#temp-min {
+  font-size: medium;
+  font-weight: 70px;
+  opacity: 1;
 }

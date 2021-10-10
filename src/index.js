@@ -13,6 +13,46 @@ function search(event) {
 let form = document.querySelector(".formfloating");
 form.addEventListener("submit", search);
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let dayz = response.data.daily;
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector(".row");
+
+  let forecastHTML = `<div class="row">`;
+  dayz.forEach(function (forecastDay, index) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="row-cols-3">
+        <div class= "day">${formatDay(forecastDay.dt)}</div>
+          <div class="card" style="width: 230px">
+            <div><img src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png" class="weathericon" alt="..." /></div>
+            <div class="card-body">
+              <h5 class="temp-max">${Math.round(
+                forecastDay.temp.max
+              )}° <span id="temp-min">${Math.round(
+        forecastDay.temp.min
+      )}°</span></h5>
+                ${forecastDay.weather[0].description}
+                <br />
+              </p>
+            </div>
+        </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let now = new Date();
 let days = [
   "Sunday",
@@ -64,6 +104,14 @@ fahrenheitBtn.addEventListener("click", getFahrenheit);
 let celsiusBtn = document.querySelector(".celsius");
 celsiusBtn.addEventListener("click", getCelsius);
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "fd8dc43a95bacb95d9bf2f72376e8563";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemp(response) {
   console.log(response);
   let city = response.data.name;
@@ -87,6 +135,8 @@ function showTemp(response) {
   console.log(response.data.main.temp);
   let tempElement = document.querySelector(".current-temp");
   tempElement.innerHTML = `${Temperature}`;
+
+  getForecast(response.data.coord);
 }
 function getPosition(position) {
   console.log(position);
